@@ -45,6 +45,10 @@ function App() {
   return <div className="site-shell">
     <header className="site-header"><div className="container header-inner"><Logo/><span>PROJECT REPOSITORY</span></div></header>
     <main className="documents-section"><div className="container"><div className="section-heading"><span className="eyebrow">LUMEA / ARCHIVE</span><h1>Project Resources<span>.</span></h1></div>
+      <section className="project-link-panel" aria-labelledby="live-project-title">
+        <div><span className="eyebrow">LIVE PROJECT</span><h2 id="live-project-title">Explore L.U.M.E.A.</h2><p>lumea.earth</p></div>
+        <a className="launch-project-link" href="https://lumea.earth/?lang=en" target="_blank" rel="noopener noreferrer" aria-label="Launch L.U.M.E.A. in a new tab">Launch L.U.M.E.A. <ExternalIcon/></a>
+      </section>
       <div className="viewer-list">{resources.map((resource) => <PdfCard key={resource.id} resource={resource}/>)}</div>
     </div></main>
     <footer className="site-footer"><div className="container footer-inner"><div><span className="eyebrow">THE TEAM</span><h2>Created by</h2></div><ul>{projectTeam.map((name) => <li key={name}>{name}</li>)}</ul></div></footer>
