@@ -1,42 +1,44 @@
-# LUMEA · Repositorio del proyecto
+# L.U.M.E.A. | Project Resources
 
-Sitio estático en React + TypeScript + Vite para leer dos PDF directamente en la página. El primero es una exportación del Google Doc y el segundo, una exportación de la presentación de Canva.
+A React, TypeScript, and Vite site that presents two project PDFs in embedded readers. The site is ready for GitHub Pages.
 
-## Agregar los documentos
+## Resources
 
-Guarda ambos archivos en **`public/recursos/` de este proyecto** (`RepoEnLinea`, no `L.U.M.E.A/web`). Usa exactamente estos nombres:
-
-| Origen | Nombre en `public/recursos/` |
+| Resource | File |
 | --- | --- |
-| Google Docs → Archivo → Descargar → Documento PDF | `lumea.pdf` |
-| Canva → Compartir → Descargar → PDF | `lumea-presentation.pdf` |
+| Earth Analog Identification and Evaluation (technical report) | `public/recursos/lumea.pdf` |
+| Preparing for the Moon and Mars (project presentation) | `public/recursos/lumea-presentation.pdf` |
 
-La página detecta cada PDF y lo muestra en un lector integrado. Mientras no exista un archivo, muestra una portada ilustrativa. No hay que cambiar el código si usas esos nombres. Para actualizar el contenido, sustituye el PDF y haz un nuevo push.
+Both PDFs are included in the repository and open inside the page. To publish an updated version, replace the matching file and push the change. Titles and paths are defined in `src/resources.ts`.
 
-Si quieres ajustar los títulos o las rutas, edita `src/resources.ts`.
+## Project team
 
-## Verlo en local
+- Katia Alejandra Ávalos García
+- Diego Iván Hernández Muñoz
+- Luis Angel De la Cruz Ascencio
 
-Requiere Node.js 22 o superior.
+## Run locally
+
+Node.js 22 or newer is required.
 
 ```powershell
 npm install
 npm run dev
 ```
 
-Abre la URL indicada por Vite, normalmente `http://localhost:5173/`. Después de copiar o sustituir los PDF, recarga la página. Para comprobar la versión de publicación:
+Open the URL printed by Vite, usually `http://localhost:5173/`. To test the production build:
 
 ```powershell
 npm run build
 npm run preview
 ```
 
-## Publicar en GitHub Pages
+## Publish with GitHub Pages
 
-El workflow `.github/workflows/pages.yml` compila y publica cada push a `main` o `master`. Vite ajusta la ruta base al nombre del repositorio durante GitHub Actions.
+The workflow in `.github/workflows/pages.yml` builds and deploys each push to `main` or `master`. Vite sets the asset base path from the GitHub repository name during the workflow.
 
-1. Sube todos los archivos del proyecto, incluidos los PDF, `.github/workflows/pages.yml` y `package-lock.json`.
-2. En **Settings → Pages → Build and deployment → Source**, selecciona **GitHub Actions**. El workflow intenta habilitar Pages automáticamente; si la primera ejecución no puede hacerlo, selecciona esa opción manualmente y vuelve a ejecutar el workflow.
-3. Revisa el resultado en **Actions → Publicar LUMEA en GitHub Pages**.
+1. Push the project files, including both PDFs, `.github/workflows/pages.yml`, and `package-lock.json`.
+2. In **Settings → Pages → Build and deployment → Source**, select **GitHub Actions**. The workflow also tries to enable Pages automatically. If the first run cannot enable it, select GitHub Actions manually and rerun the workflow.
+3. Check **Actions → Deploy L.U.M.E.A. to GitHub Pages** for the published URL.
 
-`node_modules/` y `dist/` están excluidos de Git.
+`node_modules/` and `dist/` are ignored by Git.

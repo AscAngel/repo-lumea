@@ -3,25 +3,31 @@ export interface PdfResource {
   number: string
   kind: string
   title: string
-  /** Ruta fija dentro de public. Basta con copiar el PDF con este nombre. */
+  /** Fixed path under public. Replace the PDF at this path to update the preview. */
   file: string
 }
 
 export const resources: PdfResource[] = [
   {
-    id: 'documento',
+    id: 'report',
     number: '01',
-    kind: 'GOOGLE DOCS · PDF',
-    title: 'Documento de LUMEA',
+    kind: 'TECHNICAL REPORT · PDF',
+    title: 'Earth Analog Identification and Evaluation',
     file: 'recursos/lumea.pdf',
   },
   {
-    id: 'presentacion',
+    id: 'presentation',
     number: '02',
-    kind: 'CANVA · PDF',
-    title: 'Presentación de LUMEA',
+    kind: 'PROJECT PRESENTATION · PDF',
+    title: 'Preparing for the Moon and Mars',
     file: 'recursos/lumea-presentation.pdf',
   },
+]
+
+export const projectTeam = [
+  'Katia Alejandra Ávalos García',
+  'Diego Iván Hernández Muñoz',
+  'Luis Angel De la Cruz Ascencio',
 ]
 
 export function assetUrl(path: string): string {

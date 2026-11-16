@@ -1,4 +1,4 @@
-name: Publicar LUMEA en GitHub Pages
+name: Deploy L.U.M.E.A. to GitHub Pages
 
 on:
   push:
@@ -21,25 +21,25 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Descargar repositorio
+      - name: Check out repository
         uses: actions/checkout@v4
-      - name: Preparar Node
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-      - name: Instalar dependencias
+      - name: Install dependencies
         run: npm ci
-      - name: Compilar sitio
+      - name: Build site
         run: npm run build
-      - name: Configurar Pages
+      - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
-      - name: Subir archivos estáticos
+      - name: Upload static files
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
-      - name: Publicar
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
