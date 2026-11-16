@@ -1,32 +1,29 @@
-export interface DocumentResource {
+export interface PdfResource {
   id: string
   number: string
+  kind: string
   title: string
-  format: string
-  /** Archivo dentro de public, por ejemplo: recursos/documento-01.pdf. */
-  file?: string
-  /** Portada opcional dentro de public. Recomendada para archivos Word. */
-  cover?: string
+  /** Ruta fija dentro de public. Basta con copiar el PDF con este nombre. */
+  file: string
 }
 
-export interface VideoResource {
-  title: string
-  /** Archivo MP4/WebM dentro de public, o URL pública HTTPS. */
-  file?: string
-  /** Imagen de portada opcional dentro de public. */
-  cover?: string
-}
-
-export const documents: DocumentResource[] = [
-  { id: 'documento-01', number: '01', title: 'Documento 01', format: 'PDF / Word' },
-  { id: 'documento-02', number: '02', title: 'Documento 02', format: 'PDF / Word' },
+export const resources: PdfResource[] = [
+  {
+    id: 'documento',
+    number: '01',
+    kind: 'GOOGLE DOCS · PDF',
+    title: 'Documento de LUMEA',
+    file: 'recursos/lumea.pdf',
+  },
+  {
+    id: 'presentacion',
+    number: '02',
+    kind: 'CANVA · PDF',
+    title: 'Presentación de LUMEA',
+    file: 'recursos/lumea-presentation.pdf',
+  },
 ]
 
-export const projectVideo: VideoResource = {
-  title: 'Video del proyecto',
-}
-
 export function assetUrl(path: string): string {
-  if (/^https?:\/\//i.test(path)) return path
   return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
 }
